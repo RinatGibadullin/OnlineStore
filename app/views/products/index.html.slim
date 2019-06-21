@@ -1,0 +1,33 @@
+span
+  h1
+    | Товары
+- @product.each do |product|
+  .card.border-info.mb-10
+    .card-header
+      .row
+        span.col-md-3.text-center
+          .alert.alert-success.border.rounded
+            = product.category
+        h2.col-md-7.text-center
+          = product.title
+    .card-body
+      .card-text.text-center
+        = image_tag(product.picture.thumb.url, alt: 'Image') if product.picture?
+      h5.card-subtitle.mb-2.text-muted.text-center
+        = product.description.truncate(100)
+      h3.card-text.text-center
+        = number_to_currency(product.price, locale: :ru)
+      .text-right
+        p
+          = link_to 'подробнее', product, class: "btn btn-outline-primary"
+
+    .card-footer.text-muted
+      .row
+        div.align-self-center.col-md-1
+          | Кол-во: 
+        div.col-md-11
+          = form_with url: new_ordered_product_path, method: :get, local: true do |form|
+            = form.hidden_field :product_id, :value => product.id
+            = form.number_field :amount, :value => 1, :in => 1...11
+            = form.submit("В корзину", {:class => 'btn btn-primary btn-lg'})
+  br

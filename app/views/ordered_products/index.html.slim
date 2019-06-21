@@ -1,0 +1,53 @@
+span
+  h1
+    | Корзина
+div
+  p
+    = link_to 'К списку продуктов', products_path, class: "btn btn-outline-primary"
+- unless @current_order.ordered_products.blank?
+  - @current_order.ordered_products.each do |ordered_product|
+    .card.border-info.mb-3
+      .card-header
+        .row
+          h2.col-md-8.text-center
+            = ordered_product.product.title
+          h3.col-md-2.text-center
+            | Кол-во: 
+            = ordered_product.amount
+          h3.col-md-2.text-center
+            = link_to 'удалить', ordered_product_path(ordered_product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+
+      .card-body
+        .card-text.text-center
+          = image_tag(ordered_product.product.picture.thumb.url, alt: 'Image') if ordered_product.product.picture?
+        h5.card-subtitle.mb-2.text-muted.text-center
+          = ordered_product.product.description.truncate(100)
+        h3.card-text.text-center
+          = number_to_currency(ordered_product.product.price, locale: :ru)
+        .text-right
+          p
+            = link_to 'подробнее', ordered_product.product, class: "btn btn-outline-primary"
+
+      .card-footer
+        p.text-muted
+          | Добавлен 
+          = ordered_product.created_at.strftime('%F')
+        h3.text-right
+          | Цена:  
+          = number_to_currency(ordered_product.price, locale: :ru)
+  hr
+  h1
+    | Итого: 
+    = number_to_currency(@total_price, locale: :ru)
+  = form_for @current_order do |form|
+    = form.hidden_field :status, :value => "created"
+    = form.submit("Оформить заказ",{:class => 'btn btn-primary btn-lg'})
+  br
+  br
+- else
+  h5.text-center
+    |  Корзина пуста :( 
+  .text-center
+    = link_to products_path, class: "btn btn-success btn-lg text-white"
+      i.fa.fa-cart-plus  
+      |  добавить товары в корзину

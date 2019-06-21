@@ -1,0 +1,62 @@
+span
+  h1
+    | История заказов
+  br
+- unless current_user.orders.blank?
+  - current_user.orders.order("created_at DESC").each do |order|
+    - if (order.status != 'draft')
+      .card.border-info.mb-3
+        .card-header
+          .row
+            div.col-md-2.text-center
+              | Заказ № 
+              = order.id           
+            - if (order.status == 'created')
+                h4.col-md-7.text-center
+                  div.alert.alert-info.border.rounded
+                    | заказ в обработке
+                h5.col-md-1.text-center
+                  div          
+                    = form_for order, :action => "update" do |form|
+                      = form.hidden_field :status, :value => "canceled"
+                      = form.submit("Отменить заказ",{:class => 'btn btn-danger btn-lg'})
+            - if (order.status == 'in_progress')
+                h4.col-md-10.text-center
+                  div.alert.alert-warning.border.rounded
+                    | заказ в пути
+                
+            - if (order.status == 'completed')
+                h4.col-md-10.text-center
+                  div.alert.alert-success.border.rounded
+                    | заказ доставлен
+            - if (order.status == 'canceled')
+                h4.col-md-10.text-center
+                  div.alert.alert-dark.border.rounded
+                    | заказ отменён
+        .card-body
+          - @total_price = 0
+          - order.ordered_products.each do |ordered_product|
+              span.card-text.text-left 
+                = ordered_product.product.title
+                |  - 
+                = ordered_product.amount
+                |  шт., 
+                = number_to_currency(ordered_product.price, locale: :ru)
+                - @total_price += ordered_product.price
+                br
+        .text-right
+          p
+            = link_to 'посмотреть товары', users_order_path(id: order.id), class: "btn btn-outline-primary"
+          div.alert.alert-secondary.border.rounded           
+            h3
+              | Итого: 
+              = number_to_currency(@total_price, locale: :ru)
+
+        .card-footer.text-muted
+          p
+            | создан 
+            = order.created_at.strftime('%F')
+- else
+  |  У вас еще нет заказов :( 
+  p
+    = link_to 'добавить товары в корзину', products_path, class: "btn btn-outline-primary"
