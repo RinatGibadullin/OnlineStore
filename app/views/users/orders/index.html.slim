@@ -14,25 +14,31 @@ span
             - if (order.status == 'created')
                 h4.col-md-7.text-center
                   div.alert.alert-info.border.rounded
-                    | заказ в обработке
-                h5.col-md-1.text-center
+                    i.fa.fa-spinner
+                    |  заказ в обработке
+                h5.col-md-3.text-center
                   div          
                     = form_for order, :action => "update" do |form|
                       = form.hidden_field :status, :value => "canceled"
-                      = form.submit("Отменить заказ",{:class => 'btn btn-danger btn-lg'})
+                      = button_tag(type: 'submit', class: "btn btn-danger btn-lg") do
+                        i.fa.fa-ban
+                        |  отменить заказ 
             - if (order.status == 'in_progress')
                 h4.col-md-10.text-center
                   div.alert.alert-warning.border.rounded
-                    | заказ в пути
+                    i.fa.fa-truck
+                    |  заказ в пути
                 
             - if (order.status == 'completed')
                 h4.col-md-10.text-center
                   div.alert.alert-success.border.rounded
-                    | заказ доставлен
+                    i.fa.fa-clipboard
+                    |  заказ доставлен
             - if (order.status == 'canceled')
                 h4.col-md-10.text-center
                   div.alert.alert-dark.border.rounded
-                    | заказ отменён
+                    i.fa.fa-undo
+                    |  заказ отменён
         .card-body
           - @total_price = 0
           - order.ordered_products.each do |ordered_product|

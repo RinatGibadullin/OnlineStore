@@ -1,11 +1,10 @@
 module ApplicationHelper
-	def cart_count_over_one
-    if @cart.line_items.count > 0
-      return "<span class='tag is-dark'>#{@cart.line_items.count}</span>".html_safe
-    end
-  end
-
-  def cart_has_items
-    return @cart.line_items.count > 0
+	def bootstrap_class_for flash_type
+    {
+      success: 'alert-success',
+      error: 'alert-danger',
+      alert: 'alert-warning',
+      notice: 'alert-info'
+    }[flash_type.to_sym] || flash_type.to_s
   end
 end

@@ -1,3 +1,37 @@
+/ = form_tag({ :controller => "products", :action => "index", :id => "app-cover" } ) do
+/   div id="select-box"
+/     input type="checkbox" id="options-view-button"
+/     div id="select-button" class="brd"
+/       div id="selected-value"
+/         span
+/           | Выберите категорию
+/       div id="chevrons"
+/         i.fa.fa-chevron-up"
+/         i.fa.fa-chevron-down"
+/     div id="options "
+/       div class="option"
+/         = radio_button_tag(:category, "Microphone", false, :onclick => "this.form.submit();", :class => "s-c top")
+/         input class="s-c bottom" type="radio" name="category" value="Microphone"
+/         i.fa.fa-microphone
+/         span class="label"
+/           | Microphone
+/         span class="opt-val"
+/           | Microphone
+/       div class="option"
+/         input class="s-c top" type="radio" name="category" value="AudioInterface"
+/         input class="s-c bottom" type="radio" name="category" value="AudioInterface"
+/         i.fab.fa-codepen
+/         span class="label"
+/           | AudioInterface
+/         span class="opt-val"
+/           | AudioInterface
+/       div id="option-bg" 
+/ br
+/ br
+/ br
+= form_with url: products_path, method: :get, local: true, :id => "app-cover" do |form|
+    = form.select :category_id, options_from_collection_for_select(Category.all, :id,:name), :prompt => "Выберите категорию"
+    = form.submit("Показать", {:class => 'btn btn-primary btn-lg col-md-5'})
 span
   h1
     | Товары
@@ -7,7 +41,7 @@ span
       .row
         span.col-md-3.text-center
           .alert.alert-success.border.rounded
-            = product.category
+            = product.category.name
         h2.col-md-7.text-center
           = product.title
     .card-body
@@ -29,5 +63,7 @@ span
           = form_with url: new_ordered_product_path, method: :get, local: true do |form|
             = form.hidden_field :product_id, :value => product.id
             = form.number_field :amount, :value => 1, :in => 1...11
-            = form.submit("В корзину", {:class => 'btn btn-primary btn-lg'})
+            = button_tag(type: 'submit', class: "btn btn-primary btn-lg") do
+              i.fa.fa-shopping-cart
+              |   В корзину
   br

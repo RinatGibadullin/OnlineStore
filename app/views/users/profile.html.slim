@@ -4,10 +4,16 @@ div.bg-light.text-center.border.border-primary.rounded
 br
 
 h2.text-right
-    = link_to "Изменить данные профиля", edit_user_registration_path, class: "btn btn-warning text-white"
+    = link_to edit_user_registration_path, class: "btn btn-warning text-white"
+    	i.fa.fa-edit
+    	|  Изменить данные профиля
+
 
 h2.text-right
-    = link_to "История заказов", users_orders_path, class: "btn btn-warning text-white"
+    = link_to users_orders_path, class: "btn btn-warning text-white"
+    	i.fa.fa-history
+    	|  История заказов 
+
 .span
 	.h3
 		| Имя пользователя: 

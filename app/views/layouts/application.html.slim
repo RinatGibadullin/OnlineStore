@@ -33,8 +33,9 @@ html
         h2
           = link_to 'Войти', new_user_session_path, class: "btn btn-outline-primary text-white"
     .container
-      p.notice
-        = notice
-      p.alert
-        = alert
+      - flash.each do |flash_type, message|
+        .alert.alert-dismissable class="#{bootstrap_class_for(flash_type)}"
+          = message
+          button.close data-dismiss='alert' ×
+          
       = yield

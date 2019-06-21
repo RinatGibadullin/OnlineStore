@@ -12,7 +12,9 @@
     label
       | Тип
     div
-      = form.text_field(:category, {:class => 'form-control'})
+      / = form.text_field(:category, {:class => 'form-control'})
+
+      = select_tag(:category_id, options_for_select(@categories), {:class => 'form-control'})
     label
       | Название
     div
