@@ -2,26 +2,26 @@ div.bg-light.text-center.border.border-primary.rounded
 	h1
 	  | Мой профиль
 br
+div.text-white
+	h2.text-right
+	    = link_to edit_user_registration_path, class: "btn btn-warning text-white"
+	    	i.fa.fa-edit
+	    	|  Изменить данные профиля
 
-h2.text-right
-    = link_to edit_user_registration_path, class: "btn btn-warning text-white"
-    	i.fa.fa-edit
-    	|  Изменить данные профиля
 
+	h2.text-right
+	    = link_to users_orders_path, class: "btn btn-warning text-white"
+	    	i.fa.fa-history
+	    	|  История заказов 
 
-h2.text-right
-    = link_to users_orders_path, class: "btn btn-warning text-white"
-    	i.fa.fa-history
-    	|  История заказов 
+	.span
+		.h3
+			| Имя пользователя: 
+			= current_user.username
+		.h3
+			| email: 
+			= current_user.email
 
-.span
-	.h3
-		| Имя пользователя: 
-		= current_user.username
-	.h3
-		| email: 
-		= current_user.email
-
-	.h3
-		| Номер телефона: 
-		= current_user.phone
+		.h3
+			| Номер телефона: 
+			= current_user.phone

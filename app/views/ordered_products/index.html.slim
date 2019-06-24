@@ -1,5 +1,5 @@
 span
-  h1
+  h1.text-white
     | Корзина
 div
   p
@@ -15,7 +15,7 @@ div
             | Кол-во: 
             = ordered_product.amount
           h3.col-md-2.text-center
-            = link_to 'удалить', ordered_product_path(ordered_product), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+            = link_to 'удалить', ordered_product_path(ordered_product), method: :delete, data: { confirm: 'Вы уверены?' }, class: "btn btn-danger"
 
       .card-body
         .card-text.text-center
@@ -36,7 +36,7 @@ div
           | Цена:  
           = number_to_currency(ordered_product.price, locale: :ru)
   hr
-  h1
+  h1.text-white
     | Итого: 
     = number_to_currency(@total_price, locale: :ru)
   = form_for @current_order do |form|
@@ -45,7 +45,7 @@ div
   br
   br
 - else
-  h5.text-center
+  h5.text-center.text-white
     |  Корзина пуста :( 
   .text-center
     = link_to products_path, class: "btn btn-success btn-lg text-white"

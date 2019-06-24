@@ -1,5 +1,5 @@
 span
-  h1
+  h1.text-white
     | История заказов
   br
 - unless current_user.orders.blank?
@@ -63,6 +63,7 @@ span
             | создан 
             = order.created_at.strftime('%F')
 - else
-  |  У вас еще нет заказов :( 
+  p.text-white
+    |  У вас еще нет заказов :( 
   p
     = link_to 'добавить товары в корзину', products_path, class: "btn btn-outline-primary"

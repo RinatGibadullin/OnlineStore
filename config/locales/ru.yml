@@ -267,3 +267,218 @@ ru:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: вечера
+  devise:
+    confirmations:
+      confirmed: "Ваша учётная запись подтверждена."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+      send_paranoid_instructions: "Если ваш электронный адрес есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+    failure:
+      already_authenticated: "Вы уже вошли в систему."
+      inactive: "Ваша учётная запись ещё не активирована."
+      invalid: "Неверный %{authentication_keys} или пароль."
+      locked: "Ваша учётная запись заблокирована."
+      last_attempt: "У вас осталась еще одна попытка ввести пароль до блокировки."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
+      timeout: "Ваш сеанс закончился. Пожалуйста, войдите в систему снова."
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться."
+      unconfirmed: "Вы должны подтвердить вашу учётную запись."
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкции по подтверждению учётной записи."
+      reset_password_instructions:
+        subject: "Инструкции по восстановлению пароля."
+      unlock_instructions:
+        subject: "Инструкции по разблокировке учётной записи."
+      email_changed:
+        subject: "Электронный адрес был изменён."
+      password_change:
+        subject: "Пароль был изменён."
+    omniauth_callbacks:
+      failure: "Вы не можете войти в систему с учётной записью из %{kind}, так как \"%{reason}\"."
+      success: "Вход в систему выполнен с учётной записью из %{kind}."
+    passwords:
+      no_token: "Эта страница доступна только при переходе по ссылке для сброса пароля. Если вы перешли по ссылке из письма, пожалуйста, убедитесь, что вы использовали полный URL."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
+      send_paranoid_instructions: "Если ваш электронный адрес есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
+      updated: "Ваш пароль изменён. Теперь вы вошли в систему."
+      updated_not_active: "Пароль изменён."
+    registrations:
+      destroyed: "До свидания! Ваша учётная запись удалена. Надеемся снова увидеть вас."
+      signed_up: "Добро пожаловать! Вы зарегистрировались."
+      signed_up_but_inactive: "Вы зарегистрировались. Тем не менее, вы не можете войти, потому что ваша учетная запись ещё не активирована."
+      signed_up_but_locked: "Вы зарегистрировались. Тем не менее, вы не можете войти, потому что ваша учетная запись заблокирована."
+      signed_up_but_unconfirmed: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+      update_needs_confirmation: "Ваш аккаунт обновлен, нонеобходимо подтвердить ваш новый электронный адрес. Пожалуйста, проверьте свою электронную почту и нажмите на ссылку \"Подтвердить\", чтобы завершить обновление."
+      updated: "Ваша учётная запись изменена."
+    sessions:
+      user:
+        signed_in: "Вход в систему выполнен."
+        signed_out: "Выход из системы выполнен."
+        already_signed_out: "Выход из системы выполнен."
+    unlocks:
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по разблокировке вашей учётной записи."
+      send_paranoid_instructions: "Если ваша учётная запись существует, то в течение нескольких минут вы получите письмо с инструкциями по её разблокировке."
+      unlocked: "Ваша учётная запись разблокирована. Теперь вы вошли в систему."
+    errors:
+      messages:
+        already_confirmed: "уже подтверждена. Пожалуйста, попробуйте войти в систему"
+        confirmation_period_expired: "должен быть подтвержден в течении %{period}, пожалуйста, запросите подтверждение ещё раз"
+        expired: "устарела. Пожалуйста, запросите новую"
+        not_found: "не найдена"
+        not_locked: "не заблокирована"
+        not_saved:
+          one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+          other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+  admin:
+    js:
+      true: 'True'
+      false: 'False'
+      is_present: 'Не пустое'
+      is_blank: 'Пустое'
+      date: 'Дата ...'
+      between_and_: 'Между ... и ...'
+      today: 'Сегодня'
+      yesterday: 'Вчера'
+      this_week: 'Эта неделя'
+      last_week: 'Предыдущая неделя'
+      number: 'Число ...'
+      contains: 'Содержит'
+      is_exactly: 'Точно совпадает'
+      starts_with: 'Начинается с'
+      ends_with: 'Заканчивается на'
+      too_many_objects: "Слишком много элементов, используйте поиск"
+      no_objects: "Ничего не найдено"
+      loading: "Загрузка..."
+      toggle_navigation: "Включить навигацию"
+    home:
+      name: "Главная"
+      pagination:
+      previous: "&laquo; Предыдущая"
+      next: "Следующая &raquo;"
+      truncate: "…"
+    misc:
+      search: "Поиск"
+      filter: "Фильтр"
+      refresh: "Обновить"
+      show_all: "Показать все"
+      add_filter: "Добавить фильтр..."
+      bulk_menu_title: "Выбранные элементы..."
+      remove: "Убрать"
+      add_new: "Добавить новый"
+      chosen: "Выбранный %{name}"
+      chose_all: "Выбрать все"
+      clear_all: "Очистить"
+      up: "Вверх"
+      down: "Вниз"
+      navigation: "Навигация"
+      log_out: "Выйти"
+      navigation_static_label: "Ссылки"
+      ago: "назад"
+    flash:
+      successful: "Успешно %{action} %{name}"
+      error: "Не удалось %{action} %{name}"
+      noaction: "Никаких изменений не выполнено"
+      model_not_found: "Модель '%{model}' не найдена"
+      object_not_found: "Объект %{model} с id '%{id}' не найден"
+    table_headers:
+      model_name: "Название модели"
+      last_used: "Последнее действие"
+      records: "Записи"
+      username: "Пользователь"
+      changes: "Изменения"
+      created_at: "Дата/Время"
+      item: "Элемент"
+      message: "Сообщение"
+    actions:
+      dashboard:
+        title: "Управление сайтом"
+        menu: "Контрольная панель"
+        breadcrumb: "Контрольная Панель"
+    index:
+      title: "%{model_label_plural}"
+      menu: "Список"
+      breadcrumb: "%{model_label_plural}"
+    show:
+      title: "Детали '%{object_label}'"
+      menu: "Просмотр"
+      breadcrumb: "%{object_label}"
+    show_in_app:
+      menu: "Показать в приложении"
+    new:
+      title: "Новый %{model_label}"
+      menu: "Создать"
+      breadcrumb: "Создать"
+      link: "Добавить новый"
+      done: "создано"
+    edit:
+      title: "Редактирование '%{object_label}'"
+      menu: "Редактирование"
+      breadcrumb: "Редактирование записи"
+      link: "Редактировать %{model_label}"
+      done: "сохранено"
+    delete:
+      title: "Удаление '%{object_label}'"
+      menu: "Удаление"
+      breadcrumb: "удаление"
+      link: "Удалить '%{object_label}'"
+      done: "удалено"
+    bulk_delete:
+      title: "Удалить много записей"
+      menu: "Мульти-удаление"
+      breadcrumb: "мульти-удаление"
+      bulk_link: "Удалить выбранныe"
+    export:
+      title: "%{model_label_plural} : экспорт"
+      menu: "Экспорт"
+      breadcrumb: "Экспорт"
+      link: "Экспорт всех найденных"
+      bulk_link: "Экспорт всех выбраных"
+      done: "экспортировать"
+    history_index:
+      title: "%{model_label_plural} : история"
+      menu: "История"
+      breadcrumb: "история"
+    history_show:
+      title: "История для %{model_label} '%{object_label}'"
+      menu: "История"
+      breadcrumb: "история"
+    form:
+      cancel: "Отмена"
+      basic_info: "Основное"
+      required: "Требуемое"
+      optional: "Необязательное"
+      one_char: "символ"
+      char_length_up_to: "длина не более"
+      char_length_of: "длина"
+      save: "Сохранить"
+      save_and_add_another: "Сохранить и добавить новый"
+      save_and_edit: "Сохранить и редактировать"
+      all_of_the_following_related_items_will_be_deleted: "? Следующие объекты будут удалены"
+      are_you_sure_you_want_to_delete_the_object: "Вы уверены что хотите удалить"
+      confirmation: "Да, уверен"
+      delete_confirmation: "Подтвердить удаление"
+      bulk_delete: "Следующие объекты будут удалены:"
+    export:
+      confirmation: "Экспортировать как %{name}"
+      select: "Выберите поля для экспорта"
+      select_all_fields: "Выбрать все поля"
+      fields_from: "Поля из %{name}"
+      fields_from_associated: "Поля из ассоциированной %{name}"
+      display: "Показать %{name}: %{type}"
+      options_for: "Настройки для %{name}"
+      empty_value_for_associated_objects: "<пусто>"
+      click_to_reverse_selection: 'Обратить выделение'
+    csv:
+      header_for_root_methods: "%{name}" # 'model' is available
+      header_for_association_methods: "%{name} [%{association}]"
+      encoding_to: "Кодировать в"
+      encoding_to_help: "Выберите результирующую кодировку. Кодировка по умолчанию: (%{name})"
+      skip_header: "Без заголовка"
+      skip_header_help: "Не выводить заголовок (без описаний полей)"
+      default_col_sep: ","
+      col_sep: "Разделитель столбцов"
+      col_sep_help: "Разделитель по умолчанию ('%{value}')" # value is default_col_sep
+  Microphone: Микрофоны
+  AudioInterface: Звуковые карты
+  StudioMonitors: Студийные мониторы
+  MidiKeyboard: Миди-клавиатуры

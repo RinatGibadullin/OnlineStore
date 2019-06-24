@@ -35,6 +35,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
 
+gem 'rails_admin', '~> 1.4.2'
+
+gem 'rails_admin-i18n'
+
 gem 'bootstrap', '~> 4.3.1'
 
 gem 'carrierwave', '~> 1.0'

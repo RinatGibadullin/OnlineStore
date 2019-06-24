@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
 	before_action :set_current_order
+	before_action :set_locale
+
+  	def set_locale
+    	I18n.locale = :ru || I18n.default_locale
+  	end
 
 	def set_current_order
 		# session["current_order_id"] = nil
