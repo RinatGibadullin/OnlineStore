@@ -1,15 +1,18 @@
 p
-  = link_to 'К списку продуктов', products_path, class: "btn btn-outline-primary"
+  = link_to products_path, class: "btn btn-outline-primary text-white"
+    i.fa.fa-chevron-left
+    |   К списку продуктов
+
 .card.border-info.mb-3
   .card-header
     .row
       span.col-md-3.text-center
         .alert.alert-success.border.rounded
-          = @product.category.name
+          = @product.category.t_name
       h2.col-md-7.text-center
         = @product.title
   .card-body
-    .card-text.text-center
+    .card-text.text-center.m-3
       = image_tag(@product.picture.thumb.url, alt: 'Image') 
     h5.card-subtitle.mb-2.text-muted
       = @product.description

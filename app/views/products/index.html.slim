@@ -38,9 +38,9 @@
 /       - Category.all.each do |category|
 /         = link_to products_path(category: category.name), class: "link"
 
-.row.d-flex.align-content-center.flex-wrap
-  = form_with url: products_path, method: :get, local: true, :id => "app-cover" do |form|
-    = form.select :category_id, options_from_collection_for_select(@categories, :id, :name), {:include_blank => "выбрать категорию"}, {class: "form-control input-sm"}
+div.row.d-flex.align-content-center.flex-wrap.row.
+  = form_with url: products_path, method: :get, local: true, :id => "app-cover", :class => "row d-flex" do |form|
+    = form.select :category_id, options_from_collection_for_select(@categories, :id, :t_name, @category&.id), {:include_blank => "выбрать категорию"}, {class: "form-control input-sm "}
     = form.submit("Показать", {:class => 'btn btn-primary btn-lg'})
 span
   h1.text-white
@@ -51,19 +51,17 @@ span
 / d-flex.align-content-center.flex-wrap.row.
 div.card-columns
   - @product.each do |product|
-    div class="card border-info " style="max-width: 20rem; height: 35rem;"
+    div class="card border-info " style="max-width: 20rem; height: 30rem;"
 
       div.card-header
         .alert.alert-success.border.rounded.text-center
-          = product.category.name
+          = I18n.t product.category.name
         h5.text-center
           = product.title
 
       .card-body
-        .card-text.text-center
+        .card-text.text-center.m-3
           = image_tag(product.picture.icon.url, alt: 'Image') if product.picture?
-        h5.card-subtitle.mb-2.text-muted.text-center
-          = product.description.truncate(100)
         h3.card-text.text-center
           = number_to_currency(product.price, locale: :ru)
         .text-right

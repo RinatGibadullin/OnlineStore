@@ -1,27 +1,27 @@
-h2
-  | Регистрация
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .form-group
-    = f.label :email
-    = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
-  .form-group
-    = f.label :username
-    = f.text_field :username, class: "form-control"
-  .form-group
-    = f.label :Пароль
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    = f.password_field :password, autocomplete: "Пароль", class: "form-control"
-  .form-group
-    = f.label :Повторите_пароль
-    = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
-  .form-group
-    = f.label :Номер_телефона
-    = f.text_field :phone, autocomplete: "new-password", class: "form-control"
-  .actions
-    = f.submit "Зарегистрироваться", class: "btn btn-primary"
-= render "devise/shared/links"
+.text-white 
+  h2
+    | Регистрация
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"
+    .form-group
+      = f.label :username
+      = f.text_field :username, class: "form-control"
+    .form-group
+      = f.label :Пароль
+      - if @minimum_password_length
+        em
+          | (
+          = @minimum_password_length
+          |  characters minimum)
+      = f.password_field :password, autocomplete: "Пароль", class: "form-control"
+    .form-group
+      = f.label :Повторите_пароль
+      = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"
+    .form-group
+      = f.label :Номер_телефона
+      = f.text_field :phone, autocomplete: "new-password", class: "form-control"
+    .actions
+      = f.submit "Зарегистрироваться", class: "btn btn-primary"
