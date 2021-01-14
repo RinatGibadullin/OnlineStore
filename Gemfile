@@ -35,7 +35,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
 
-gem 'rails_admin', '~> 1.4.2'
+gem 'rails_admin', '~> 1.4.3'
 
 gem 'rails_admin-i18n'
 
