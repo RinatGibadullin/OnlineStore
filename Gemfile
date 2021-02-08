@@ -41,7 +41,7 @@ gem 'rails_admin-i18n'
 
 gem 'bootstrap', '~> 4.3.1'
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 gem 'slim'
 
